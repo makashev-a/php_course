@@ -1,18 +1,8 @@
 <?php
+
 ?>
 
-
-<form action="login.php" method="POST">
-    <p>Login</p>
-    <input type="text" name="login">
-    <p>Password</p>
-    <input type="password" name="password"> <br><br>
-    <button type="submit">Login</button>
-</form>
-
-
-
-
-
-
-
+<form action="includes/upload.php" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image"> <br><br>
+    <button type="submit">Загрузить</button>
+ </form>
