@@ -1,18 +1,43 @@
-<?php
-?>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название товара</th>
+        <th>Категория товара</th>
+        <th>Цена товара</th>
+    </tr>
+    <?php
 
-<form action="vendor/add_product.php" method="post" id="products">
-    <p>Название товара</p>
-    <input type="text" name="name">
-    <p>Описание товара</p>
-    <textarea name="description"></textarea> <br><br>
-    <select name="category_id" form="products">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-    <p>Цена товара</p>
-    <input type="number" name="price"> <br><br>
-    <button type="submit">Опубликовать пост</button>
-</form>
+    require "vendor/db.php";
+
+    $products = mysqli_query($connect, "SELECT * FROM `products`");
+    $products = mysqli_fetch_all($products, MYSQLI_ASSOC);
+
+    foreach ($products as $product) {
+        ?>
+        <tr>
+            <td><?= $product["id"] ?></td>
+            <td><?= $product["name"] ?></td>
+            <td><?= $product["category"] ?></td>
+            <td><?= $product["price"] ?></td>
+            <td><a href="product.php?id=<?= $product["id"] ?>">Просмотреть подробно</a></td>
+        </tr>
+        <?php
+    }
+
+    ?>
+</table>
+
+<style>
+    table {
+        font-size: 20px;
+    }
+
+    th {
+        padding: 8px;
+        background-color: #e8e8e8;
+    }
+
+    td {
+        padding: 8px;
+    }
+</style>
