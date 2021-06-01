@@ -17,9 +17,10 @@
         <tr>
             <td><?= $product["id"] ?></td>
             <td><?= $product["name"] ?></td>
-            <td><?= $product["category"] ?></td>
+            <td><?= $product["category_id"] ?></td>
             <td><?= $product["price"] ?></td>
             <td><a href="product.php?id=<?= $product["id"] ?>">Просмотреть подробно</a></td>
+            <td><a href="product_edit.php?id=<?= $product["id"] ?>">Изменить</a></td>
         </tr>
         <?php
     }
