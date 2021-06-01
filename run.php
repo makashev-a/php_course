@@ -21,6 +21,7 @@
             <td><?= $product["price"] ?></td>
             <td><a href="product.php?id=<?= $product["id"] ?>">Просмотреть подробно</a></td>
             <td><a href="product_edit.php?id=<?= $product["id"] ?>">Изменить</a></td>
+            <td><a href="vendor/delete_product.php?id=<?= $product["id"] ?>">Удалить</a></td>
         </tr>
         <?php
     }

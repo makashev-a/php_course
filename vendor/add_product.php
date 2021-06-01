@@ -10,7 +10,7 @@ $price = $_POST["price"];
 $post = mysqli_query($connect, "INSERT INTO `products` (`id`, `name`, `description`, `category_id`, `price`) VALUES (NULL, '$name', '$description', '$category_id', '$price')");
 
 if (!$post) {
-    die("Error when adding new post");
+    die("Error while adding new product");
 }
 
-die("Post is published successfully");
+die("The product was successfully added");
