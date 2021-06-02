@@ -2,17 +2,11 @@
 
 <?php
 
-require_once "Car.php";
+require_once "Equation.php";
 
-$car = new Car("Subaru", "Black", 345, 2020);
+$calculate = new Equation(3, -14, -5);
 
-$car->show_car();
-$car->save_car();
-
-$car2 = new Car("Toyota", "Blue", 250, 2018);
-
-$car2->show_car();
-$car2->save_car();
+$calculate->result();
 
 ?>
 
