@@ -1,9 +1,10 @@
 <?php
 
+require_once "Finder.php";
 
-class Workers
+class Workers extends Finder
 {
-    private static array $workers = [];
+    protected static array $workers = [];
 
     public static function create_worker(array $worker)
     {

@@ -41,4 +41,24 @@ $all_workers = Workers::count_workers();
 
 <?php
 Workers::save_workers();
+
+$find = Workers::find("akhmadi@gmail.com");
+if (!empty($find)) {
+    ?>
+    <div>
+        <h1>Worker was found</h1>
+        <h1>Name: <?= $find["Name"] ?></h1>
+        <h1>Email: <?= $find["Email"] ?></h1>
+        <h1>Age: <?= $find["Age"] ?></h1>
+        <h1>Profession: <?= $find["Profession"] ?></h1>
+        <h1>Register time: <?= $find["register_time"] ?></h1>
+    </div>
+    <?php
+} else {
+    ?>
+    <div>
+        <h1>Worker was not found</h1>
+    </div>
+    <?php
+}
 ?>
