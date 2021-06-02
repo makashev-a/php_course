@@ -2,11 +2,43 @@
 
 <?php
 
-require_once "Equation.php";
+require_once "Workers.php";
 
-$calculate = new Equation(3, -14, -5);
+$worker = [
+    "Name" => "Makashev Akhmadi",
+    "Email" => "akhmadi@gmail.com",
+    "Age" => 23,
+    "Profession" => "Back-end Developer"
+];
 
-$calculate->result();
+$worker2 = [
+    "Name" => "John David",
+    "Email" => "jdavid@gmail.com",
+    "Age" => 24,
+    "Profession" => "Front-end Developer"
+];
 
+Workers::create_worker($worker);
+Workers::create_worker($worker2);
+$all_workers = Workers::count_workers();
 ?>
+<div>
+    <h1>Number of workers: <?= $all_workers["workers_count"] ?></h1>
+    <hr>
+    <?php
+    foreach ($all_workers["all_workers"] as $worker) {
+        ?>
+        <h1>Name: <?= $worker["Name"] ?></h1>
+        <h1>Email: <?= $worker["Email"] ?></h1>
+        <h1>Age: <?= $worker["Age"] ?></h1>
+        <h1>Profession: <?= $worker["Profession"] ?></h1>
+        <h1>Register time: <?= $worker["register_time"] ?></h1>
+        <hr>
+        <?php
+    }
+    ?>
+</div>
 
+<?php
+Workers::save_workers();
+?>
