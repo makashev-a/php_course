@@ -3,20 +3,41 @@
 class Car
 {
 
-    public string $model;
-    public string $color;
-    public string $horsepower;
-    public string $production_year;
+    private string $model;
+    private string $color;
+    private int $horsepower;
+    private int $production_year;
+
+    public function __construct($model, $color, $horsepower, $production_year)
+    {
+        $this->model = $model;
+        $this->color = $color;
+        $this->horsepower = $horsepower;
+        $this->production_year = $production_year;
+    }
 
     public function show_car()
     {
         ?>
-        <p><b>Модель машины:</b> <?= $this->model ?></p>
-        <p><b>Цвет машины:</b> <?= $this->color ?></p>
-        <p><b>Кол-во л.с.:</b> <?= $this->horsepower ?></p>
-        <p><b>Год выпуска:</b> <?= $this->production_year ?></p>
-        <hr>
+        <div>
+            <h1>Модель машины: <?= $this->model ?></h1>
+            <p><b>Цвет машины:</b><span class="circle" style="background-color: <?= $this->color ?>;"></span></p>
+            <p><b>Кол-во л.с.:</b> <?= $this->horsepower ?></p>
+            <p><b>Налог:</b> <?= round($this->calculate_tax()) . " тг" ?></p>
+            <p><b>Год выпуска:</b> <?= $this->production_year ?></p>
+        </div>
+        <br>
         <?php
+    }
+
+    private function calculate_tax()
+    {
+        if ($this->horsepower >= 150) {
+            return $this->horsepower * 50 / 3;
+        } elseif ($this->horsepower >= 250) {
+            return $this->horsepower * 80 / 3;
+        }
+        return $this->horsepower * 30 / 3;
     }
 
     public function save_car()
@@ -31,4 +52,5 @@ class Car
         fwrite($fp, $car);
         fclose($fp);
     }
+
 }

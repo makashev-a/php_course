@@ -1,0 +1,18 @@
+div {
+    padding: 20px;
+    background: #d3eef3;
+    font-family: Montserrat, sans-serif;
+}
+
+p {
+    font-size: 20px;
+}
+
+.circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 100%;
+    vertical-align: middle;
+}
